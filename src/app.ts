@@ -103,6 +103,9 @@ export function createApp(): Express {
     app.get("/health", (_req, res) => {
         res.json({ status: "ok", uptime: process.uptime() });
     });
+    app.get("/healthz", (_req, res) => {
+        res.json({ status: "ok", uptime: process.uptime() });
+    });
 
     /* ------------------------------------------------------------------
      * 5. API routes — mount sub-routers under their URL prefix.
