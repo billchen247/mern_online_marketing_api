@@ -1,19 +1,23 @@
+# ---------------------------------------------------------------------------
+# .gitignore — files git should never track for the backend.
+# @author Bill Chen
+# ---------------------------------------------------------------------------
+
+node_modules/
+package-lock.json
+dist/
+coverage/
+
+# Secrets — committing a real .env is the classic beginner mistake.
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor junk
 .DS_Store
-
-# Images
-images/avatars/
-images/captchas/
-images/smileys/
-images/member_photos/
-images/signature_attachments/
-images/pm_attachments/
-
-# For security do not publish the following files
-system/expressionengine/config/database.php
-system/expressionengine/config/config.php
-
-# Caches
-sized/
-thumbs/
-_thumbs/
-*/expressionengine/cache/*
+.idea/
+.vscode/
