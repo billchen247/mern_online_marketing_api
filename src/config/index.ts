@@ -52,9 +52,11 @@ export const config = Object.freeze({
         "mongodb://localhost:27017/todo_mern_fullstack",
     ),
 
-    // CORS allow-list — the React dev server's URL. In production you would
-    // set this to the deployed frontend domain.
-    clientOrigin: process.env.CLIENT_ORIGIN ?? "http://localhost:5173",
+    // CORS allow-list — comma-separated frontend origins.
+    clientOrigin: (process.env.CLIENT_ORIGIN ?? "http://localhost:5173")
+        .split(",")
+        .map((origin) => origin.trim().replace(/\/+$/, ""))
+        .filter(Boolean),
 
     jwtSecret: jwtSecret(),
 });
