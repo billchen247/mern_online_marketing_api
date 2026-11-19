@@ -53,7 +53,7 @@ export const config = Object.freeze({
     ),
 
     // CORS allow-list — comma-separated frontend origins.
-    clientOrigin: (process.env.CLIENT_ORIGIN ?? "http://localhost:5173")
+    clientOrigin: (process.env.CLIENT_ORIGIN ?? "http://localhost:5273")
         .split(",")
         .map((origin) => origin.trim().replace(/\/+$/, ""))
         .filter(Boolean),

@@ -45,13 +45,23 @@ export function createApp(): Express {
     app.use(morgan(config.nodeEnv === "production" ? "combined" : "dev"));
 
     /* ------------------------------------------------------------------
-     * 2. CORS — allows the React dev server (different port) to call us.
-     *    Without this the browser blocks the fetch with a CORS error.
-     *    In production you'd set `origin` to your deployed frontend URL.
+     * 2. CORS — allows the configured frontend origins to call us.
+     *    CLIENT_ORIGIN is a comma-separated allow-list; the cors package
+     *    reflects the matching request origin when several are configured.
      * ---------------------------------------------------------------- */
+    const allowedOrigins = [
+        "http://localhost:5273",
+        "https://mern-online-marketing-web.onrender.com",
+        "https://mern-online-marketing-client.onrender.com"
+    ];
+    // Temporary diagnostic logging
+    app.use((req, res, next) => {
+        console.log("Request Origin:", req.headers.origin);
+        next();
+    });
     app.use(
         cors({
-            origin: config.clientOrigin,
+            origin: allowedOrigins,
             credentials: true,
             allowedHeaders: ["Content-Type", "X-Auth-Token"],
             exposedHeaders: ["X-Auth-Token"],
