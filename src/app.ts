@@ -54,11 +54,7 @@ export function createApp(): Express {
         "https://mern-online-marketing-web.onrender.com",
         "https://mern-online-marketing-client.onrender.com"
     ];
-    // Temporary diagnostic logging
-    app.use((req, res, next) => {
-        console.log("Request Origin:", req.headers.origin);
-        next();
-    });
+ 
     app.use(
         cors({
             origin: allowedOrigins,
