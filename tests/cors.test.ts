@@ -16,7 +16,7 @@ test("CORS permits only configured origins, including preflight requests", async
 
     try {
         for (const origin of [
-            "http://localhost:5273",
+            "http://localhost:5173",
             "https://mern-online-marketing-web.onrender.com",
             "https://mern-online-marketing-client.onrender.com",
         ]) {
