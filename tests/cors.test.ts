@@ -3,7 +3,7 @@ import { once } from "node:events";
 import { test } from "node:test";
 
 process.env.JWT_SECRET = "unit-test-secret-with-at-least-32-bytes";
-process.env.CLIENT_ORIGIN = "http://localhost:5273, https://mern-online-marketing-web.onrender.com/, https://mern-online-marketing-client.onrender.com/";
+process.env.CLIENT_ORIGIN = "http://localhost:5173, https://mern-online-marketing-web.onrender.com/, https://mern-online-marketing-client.onrender.com/";
 
 const { createApp } = await import("../src/app.js");
 
